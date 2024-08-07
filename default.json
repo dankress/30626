@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "osvVulnerabilityAlerts": true,
+  "updateLockFiles": true,
+  "extends": [
+    "config:best-practices",
+    ":semanticPrefixFixDepsChoreOthers",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
+    "security:openssf-scorecard"
+  ],
+  "ignoreDeps": [],
+  "packageRules": [
+    {
+      "description": "Trigger breaking release for major updates",
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "feat",
+      "commitMessageSuffix": "BREAKING CHANGE: Major update"
+    },
+    {
+      "description": "Automatically merge minor updates without notifying anyone",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ],
+  "baseBranches": ["master"]
+}
