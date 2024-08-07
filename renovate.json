@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>OTIC-2340_MFB/renovate"]
+  "extends": [
+    "config:best-practices",
+    ":semanticPrefixFixDepsChoreOthers",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
+    "security:openssf-scorecard"
+  ]
 }
